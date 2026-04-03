@@ -153,7 +153,6 @@
     #film-strip-bg{ position:absolute; inset:0; z-index:2; opacity:0; pointer-events:none; transition:opacity 1s ease; background: rgba(253, 246, 237, 0.65); overflow:hidden; }
     #film-strip-bg.show{ opacity:1; }
     
-    /* HAI CUỘN PHIM VÔ TẬN TỪ ĐẦU TỚI CUỐI */
     .film-wrapper {
       position: absolute; left: -50vw; width: 200vw; transform: translateY(-50%) rotate(-10deg); display: flex; z-index: 2;
     }
@@ -166,7 +165,7 @@
       border-top: 9px dashed rgba(255,255,255,.13);
       border-bottom: 9px dashed rgba(255,255,255,.13);
       box-shadow: 0 18px 54px rgba(0,0,0,.28), inset 0 0 30px rgba(255,255,255,.04);
-      gap: 28px; /* Khoảng cách giữa các ảnh */
+      gap: 28px; 
       will-change: transform;
     }
 
@@ -212,7 +211,6 @@
     .env-letter.slide-out{ transform:translateY(-220px); }
     #envelope-wrapper.fade-out{ opacity:0; transform:translate(-50%,-28%) scale(.9); transition:all 1s ease; pointer-events:none; }
 
-    /* NÚT MỞ THƯ TRÁI TIM */
     .heart-btn{
       position:absolute; left:50%; top:140px; width:112px; height:112px; transform:translate(-50%,-50%); z-index:6; cursor:pointer; animation:hintHeartbeat 1.55s infinite; transition:.3s;
     }
@@ -229,7 +227,6 @@
     .heart-btn.broken .heart-right{ transform:translate(28px,48px) rotate(28deg); opacity:0; }
     .heart-btn.broken .btn-text{ opacity:0; }
 
-    /* THIỆP MỜI BÊN TRONG */
     #invitation-card{ position:absolute; left:50%; top:50%; width:min(94vw,700px); transform:translate(-50%,44%) scale(.76); opacity:0; z-index:15; background:rgba(255,255,255,.98); padding:16px; border-radius:24px; box-shadow:0 30px 60px rgba(0,0,0,.15); transition:transform 1.15s cubic-bezier(.19,1,.22,1), opacity 1s ease; will-change: transform, opacity; }
     #invitation-card.show{ opacity:1; transform:translate(-50%,-50%) scale(1); pointer-events:auto; }
     
@@ -286,7 +283,6 @@
     }
     @keyframes hintHeartbeat{ 0%,100%{ transform:translate(-50%, -50%) scale(1); } 50%{ transform:translate(-50%, -50%) scale(1.15); } }
 
-    /* ===== TỐI ƯU MOBILE ĐỂ THẤY RÕ PHIM ===== */
     @media (max-width: 900px){
       :root{ --env-w:370px; --env-h:236px; --film-h:200px; }
       .title{ font-size:58px; } .subtitle{ font-size:20px; letter-spacing:3px; } .card-inner{ padding:46px 30px; } .content{ font-size:16px; }
@@ -299,35 +295,26 @@
 
     @media (max-width: 640px){
       :root{ --env-w:min(88vw,330px); --env-h:210px; --film-h: 135px; } 
-      
-      /* Đưa cuộn phim xích gần trung tâm hơn, nghiêng vừa phải */
       .film-wrapper { transform: translateY(-50%) rotate(-12deg); } 
       .fw-1 { top: 16%; } 
       .fw-2 { top: 84%; } 
       .film-track { padding: 10px 0; border-top-width: 5px; border-bottom-width: 5px; gap: 16px; }
       .film-track img { width: 180px; border-width: 3px; border-radius: 10px; }
-      
-      /* Thu nhỏ thiệp nhường chỗ cho phim hiện ra 4 góc */
       #invitation-card.show { transform:translate(-50%,-50%) scale(0.85); }
-      
       .sun{ width:82px; height:82px; top:6%; right:6%; }
       .sun::before{ inset:-22px; } .sun::after{ width:180px; height:180px; filter:blur(10px); }
       .sun-ground-glow{ width:280px; height:280px; right:-8%; top:15%; filter:blur(16px); }
-
       .clouds{ height:120px; top:5%; opacity:.82; }
       .birds, .paper-plane, .npc-car-opposite, .npc-car-same{ display:none; }
       .city-bg{ height:250px; bottom:146px; opacity:.7; }
       .city-fg{ height:160px; bottom:138px; filter:drop-shadow(0 6px 8px rgba(0,0,0,.10)); }
       .road-container{ height:150px; }
-
       .mail-truck{ width:220px; left:6vw; bottom:8px; animation:none; }
       .wheel{ animation:spinWheel .85s linear infinite; }
       .traffic-light{ bottom:150px; transform:scale(.9); }
       .mailbox-container{ bottom:148px; transform:scale(.9); }
-
       .flying-letter{ width:44px; height:38px; left:calc(6vw + 106px); bottom:63px; }
       .flying-letter::before{ border-left:22px solid transparent; border-right:22px solid transparent; border-top:16px solid #e4c39d; }
-
       #invitation-card{ width: 94vw; padding: 10px; border-radius: 18px; } 
       .card-inner{ padding: 24px 14px; border-radius: 14px; } 
       .title{ font-size: 38px; margin-bottom: 4px; } 
@@ -337,14 +324,11 @@
       .details p{ font-size: 12px; margin: 6px 0; }
       .details .icon { width: 24px; height: 24px; font-size: 12px; }
       .footer-note { font-size: 13.5px; margin-top: 14px; }
-      
       .env-letter.slide-out{ transform:translateY(-166px); } 
-      
       .corner-flower { width: 85px; height: 85px; }
       .card-inner .corner-flower.top-left { top: -25px; left: -25px; }
       .card-inner .corner-flower.bottom-right { bottom: -25px; right: -25px; }
       .flower-inside { width: 100px; height: 100px; }
-
       .heart-btn{ top:105px; width:80px; height:80px; }
       .btn-text{ font-size:16px; }
     }
@@ -559,7 +543,6 @@
 
     <div id="invitation-card">
       <div class="card-inner">
-        
         <div class="corner-flower top-left">
           <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
             <path d="M10,190 Q50,100 180,20" fill="none" stroke="#7a5c43" stroke-width="4" stroke-linecap="round"/>
@@ -606,12 +589,12 @@
 
         <p class="content">
           Thanh xuân như một chuyến xe đặc biệt, có người lên người xuống, nhưng những kỷ niệm trên chặng đường đó sẽ mãi là hành trang rực rỡ nhất.
-          Trân trọng mời bạn đến dự buổi chụp ảnh kỷ yếu của mình.
+          Trân trọng mời bạn đến dự buổi chụp ảnh kỷ yếu của Duy Tùng.
         </p>
 
         <div class="details">
           <p><span class="icon">🎓</span> Lớp: 12A2 - TRƯỜNG VĂN HÓA - BỘ CÔNG AN</p>
-          <p><span class="icon">⏰</span> Thời gian: 09:00 sáng - Chủ nhật</p>
+          <p><span class="icon">⏰</span> Thời gian: 09:00 sáng - Chủ nhật 19/4</p>
           <p><span class="icon">📍</span> Địa điểm: TRƯỜNG VĂN HÓA - BỘ CÔNG AN</p>
           <p><span class="icon">👗</span> Dresscode: ĐIỀU LỆNH - THƯỜNG PHỤC</p>
         </div>
@@ -673,7 +656,6 @@
         }, 900);
       }, isMobile ? 3900 : 5400);
 
-      // Load ảnh cuộn phim
       document.querySelectorAll('.film-track img').forEach((img, index) => {
         img.loading = 'lazy'; img.decoding = 'async'; img.style.opacity = '0'; img.style.transform = 'translateY(14px) scale(.985)';
         const reveal = () => {
@@ -701,10 +683,17 @@
       // Vỡ trái tim
       btn.classList.add('broken');
 
+      // PHÁT TIẾNG POP NGAY LẬP TỨC
       const popSound = document.getElementById('popSound');
       popSound.volume = 1.0; 
       popSound.play().catch(e => console.log("Trình duyệt chặn tiếng POP"));
 
+      // CHỈNH SỬA: PHÁT NHẠC NỀN 12.MP3 NGAY LÚC NÀY (SỚM HƠN)
+      const bgMusic = document.getElementById('bgMusic');
+      bgMusic.volume = 0.5;
+      bgMusic.play().catch(e => console.log("Trình duyệt chặn nhạc nền"));
+
+      // Bắt đầu diễn hoạt phong bì
       setTimeout(() => flap.classList.add('open'), 420);
       setTimeout(() => letter.classList.add('slide-out'), 900);
 
@@ -713,14 +702,6 @@
         filmBg.classList.add('show');
         card.classList.add('show');
 
-        // KÍCH HOẠT NHẠC NỀN 12.MP3
-        const bgMusic = document.getElementById('bgMusic');
-        bgMusic.volume = 0.5;
-        let bgPromise = bgMusic.play();
-        if (bgPromise !== undefined) {
-          bgPromise.catch(e => console.log("Trình duyệt chặn nhạc nền"));
-        }
-
         // Kích hoạt hoa rơi 3D
         if (!reduceHeavy) {
           startCanvasPetals();
@@ -728,15 +709,10 @@
       }, 1600);
     }
 
-    // ==========================================
-    // HỆ THỐNG CANVAS VẼ HOA RƠI 3D (PETALS)
-    // ==========================================
+    // HỆ THỐNG HOA RƠI 3D
     let petalsCanvas, pCtx, fallingPetals = [], animationFrameId;
-
     class Petal {
-      constructor(w, h) {
-        this.reset(w, h, true);
-      }
+      constructor(w, h) { this.reset(w, h, true); }
       reset(w, h, startRandomY = false) {
         this.x = Math.random() * w;
         this.y = startRandomY ? Math.random() * h : -20 - Math.random() * 50;
@@ -744,16 +720,13 @@
         this.height = Math.random() * 12 + 14;
         this.speedY = Math.random() * 1.5 + 0.8;
         this.speedX = Math.random() * 1 - 0.5;
-        
         this.angle = Math.random() * Math.PI * 2;
         this.spin = (Math.random() - 0.5) * 0.05;
         this.flip = Math.random() * Math.PI * 2;
         this.flipSpeed = Math.random() * 0.03 + 0.01;
-
         this.sway = Math.random() * Math.PI * 2;
         this.swaySpeed = Math.random() * 0.02 + 0.01;
         this.swayAmp = Math.random() * 1.5 + 0.5;
-
         const hues = [340, 345, 350, 355]; 
         this.color = `hsla(${hues[Math.floor(Math.random()*hues.length)]}, 100%, 82%, 0.85)`;
       }
@@ -763,17 +736,13 @@
         this.x += this.speedX + Math.sin(this.sway) * this.swayAmp;
         this.angle += this.spin;
         this.flip += this.flipSpeed;
-
-        if (this.y > h + 30 || this.x < -30 || this.x > w + 30) {
-          this.reset(w, h);
-        }
+        if (this.y > h + 30 || this.x < -30 || this.x > w + 30) { this.reset(w, h); }
       }
       draw(ctx) {
         ctx.save();
         ctx.translate(this.x, this.y);
         ctx.rotate(this.angle);
         ctx.scale(Math.cos(this.flip), 1);
-
         ctx.fillStyle = this.color;
         ctx.beginPath();
         ctx.moveTo(0, -this.height/2);
@@ -783,29 +752,17 @@
         ctx.restore();
       }
     }
-
     function startCanvasPetals() {
       petalsCanvas = document.getElementById('petals-canvas');
       pCtx = petalsCanvas.getContext('2d', { alpha: true });
-      
-      const resize = () => {
-        petalsCanvas.width = window.innerWidth;
-        petalsCanvas.height = window.innerHeight;
-      };
+      const resize = () => { petalsCanvas.width = window.innerWidth; petalsCanvas.height = window.innerHeight; };
       resize();
       window.addEventListener('resize', resize, {passive: true});
-
       const numPetals = isMobile ? 15 : 35;
-      for(let i = 0; i < numPetals; i++) {
-        fallingPetals.push(new Petal(petalsCanvas.width, petalsCanvas.height));
-      }
-
+      for(let i = 0; i < numPetals; i++) { fallingPetals.push(new Petal(petalsCanvas.width, petalsCanvas.height)); }
       function render() {
         pCtx.clearRect(0, 0, petalsCanvas.width, petalsCanvas.height);
-        fallingPetals.forEach(p => {
-          p.update(petalsCanvas.width, petalsCanvas.height);
-          p.draw(pCtx);
-        });
+        fallingPetals.forEach(p => { p.update(petalsCanvas.width, petalsCanvas.height); p.draw(pCtx); });
         animationFrameId = requestAnimationFrame(render);
       }
       render();
