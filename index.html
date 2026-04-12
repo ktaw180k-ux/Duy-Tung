@@ -157,8 +157,10 @@
       position: absolute; left: -100vw; width: 300vw; /* Đảm bảo đủ rộng để lấp kín mọi góc */
       transform: translateY(-50%) rotate(-10deg); display: flex; z-index: 2;
     }
+    /* Thêm dải phim thứ 3 cho hiệu ứng "bất tận" hấp dẫn hơn */
     .fw-1 { top: 12%; }
     .fw-2 { top: 88%; }
+    .fw-3 { top: 50%; opacity: 0.15; filter: blur(3px); z-index: 1; transform: translateY(-50%) rotate(10deg); } /* Dải mờ ở giữa, góc nghiêng khác */
 
     .film-track {
       position: relative; display: flex; align-items: center; width: max-content; 
@@ -188,6 +190,7 @@
       box-shadow: 0 18px 34px rgba(0,0,0,.26);
     }
 
+    /* Các animation cuộn phim với tốc độ khác nhau để tạo chiều sâu */
     .track-1 { animation: scrollFilm1 55s linear infinite; }
     .track-2 { animation: scrollFilm2 60s linear infinite; }
 
@@ -278,6 +281,7 @@
     @keyframes smoke{ 0%{ transform:scale(.55) translate(0,0); opacity:.7; } 100%{ transform:scale(2.8) translate(-28px,-15px); opacity:0; } }
     @keyframes letterFly{ 0%{ transform:translate(0,0) scale(.55) rotate(0); opacity:0; } 35%{ opacity:1; transform:translate(14vw,-17vh) scale(1.8) rotate(18deg); } 100%{ transform:translate(-8vw,-54vh) scale(5.5) rotate(-12deg); opacity:0; } }
     
+    /* Animation cuộn phim di chuyển ngược nhau để tạo hiệu ứng chuyển động phong phú */
     @keyframes scrollFilm1 { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
     @keyframes scrollFilm2 { 0% { transform: translateX(-50%); } 100% { transform: translateX(0); } }
 
@@ -663,12 +667,12 @@
       /* SỬA LỖI SAO CHÉP ĐỂ CUỘN PHIM KHÔNG BỊ TRỐNG HOẶC RÁCH MÍ */
       const track1 = document.getElementById('track1');
       if (track1) {
-        const baseHtml = track1.innerHTML;
-        const doubleHtml = baseHtml + baseHtml;
+        const baseHtml = track1.innerHTML; // Lấy cụm div film-set gốc
+        const doubleHtml = baseHtml + baseHtml; // Nhân đôi cụm div đó
 
-        track1.innerHTML = doubleHtml; // Hàng 1
+        track1.innerHTML = doubleHtml; // Gán lại cho Hàng 1
         
-        // Cập nhật cho Hàng 2 và Hàng 3
+        // Cập nhật cho Hàng 2 và Hàng 3 (tự tìm div track2 và cụm film-set hàng 2)
         const track2 = document.getElementById('track2');
         if (track2) track2.innerHTML = doubleHtml;
         
@@ -696,7 +700,7 @@
       popSound.volume = 1.0; 
       popSound.play().catch(e => console.log("Trình duyệt chặn tiếng POP"));
 
-      // PHÁT NHẠC NỀN
+      // CHỈNH SỬA: PHÁT NHẠC NỀN 12.MP3 NGAY LÚC NÀY (SỚM HƠN)
       const bgMusic = document.getElementById('bgMusic');
       bgMusic.volume = 0.5;
       bgMusic.play().catch(e => console.log("Trình duyệt chặn nhạc nền"));
